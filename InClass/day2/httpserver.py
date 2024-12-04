@@ -28,6 +28,7 @@ def main():
             print()
             print('Request:')
             print(request_line)
+                
         except Exception as e:
             print("Error while reading HTTP Request:", e)
             traceback.print_exc() # Print what line the server crashed on.
@@ -37,9 +38,30 @@ def main():
         # 3. Write the HTTP Response back to the browser
         writer_to_browser = connection_to_browser.makefile(mode='wb')
         try:
-            # TODO: read "Hello, World!" from an HTML file instead of this encoded string.
-            response_body = "Hello, World!".encode("utf-8")
+            # DONE: read "Hello, World!" from an HTML file instead of this encoded string.
+            filename = request_line.split(" ")[1]
+            if filename == "/shutdown":
+                print("Server shutting down")
+                exit()            
+            with open(f".{filename}", 'rb') as file:
+                response_body = file.read()
+            print(response_body)
+            
+            
+            # response_body = "Hello, Dr. Fisher.".encode("utf-8")
             content_type = 'text/html; charset=utf-8'
+            if filename.endswith(".html"):
+                content_type = 'text/html; charset=utf-8'
+            elif filename.endswith(".png"):
+                content_type = "image/png"
+            elif filename.endswith(".jpeg"):
+                content_type = "image/jpeg"
+            elif filename.endswith(".ico"):
+                content_type = "image/x-icon"
+            elif filename.endswith(".js"):
+                content_type = "text/javascript"
+            elif filename.endswith(".css"):
+                content_type = "text/css"
 
             response_headers = "\r\n".join([
                 'HTTP/1.1 200 OK',
