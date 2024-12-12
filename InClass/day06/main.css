@@ -1,0 +1,37 @@
+
+/*
+1. Create a yellow background
+2. Change color for paragraph tags
+3. Change the color of a paragraph with the class intro
+4. Select two tags p and div and change color
+5. Select P elements inside the DIV elements
+6. Select the P elements that are children of the DIV elements
+7. Select the first P element after the DIV element (not inside the DIV)
+8. Select all p elements that are preceded by div and also under the same parent */
+        /* body {
+            background-color: yellow;
+        }  */
+        p {
+            color: red;
+        }
+        .intro {
+            background-color: lightgreen;
+        }
+        #myFavoriteParagraph {
+            background-color: yellow;
+        }
+        p, div {
+            font-size: 1.2em;
+        }
+        div > p {
+            font-weight: 900;
+        }
+        div + p {
+            background-color: pink;
+        }
+        body p {
+            background-color: cyan !important;
+        }
+        /* div p {
+            font-weight: 100;
+        } */
