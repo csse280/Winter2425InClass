@@ -3,28 +3,17 @@ import time
 import signal
 import traceback
 
-# Live coding:
-# 0. Show how you load this into your IDE.
-# 1. Walk through the parts of handling a HTTP request.
-# 2. Run and connect to this server in the browser.
-# 3. Create a file called hello.html containing the message, "Hello, World!".
-# 4. Set the response body to the read-in contents of hello.html.
-#       Use "rb" for the open() mode.
-#       Now you should be able to change hello.html and refresh the browser to see the changes, without restarting the server!
-
 
 def main():
 
     server = create_connection(port = 8080)
 
     while True:
-        # 1. Wait for the browser to send a HTTP Request
         connection_to_browser = accept_browser_connection_to(server)
 
-        # 2. Read the HTTP Request from the browser
         reader_from_browser = connection_to_browser.makefile(mode='rb')
         try:
-            request_line = reader_from_browser.readline().decode("utf-8") # decode converts from bytes to text
+            request_line = reader_from_browser.readline().decode("utf-8")
             print()
             print('Request:')
             print(request_line)
@@ -43,7 +32,7 @@ def main():
             if filename == "/shutdown":
                 print("Server shutting down")
                 exit()            
-            with open(f".{filename}", 'rb') as file:
+            with open(f"./public{filename}", 'rb') as file:
                 response_body = file.read()
             print(response_body)
             
@@ -99,7 +88,7 @@ def create_connection(port):
     addr = ("", port)  # "" = all network adapters; usually what you want.
     server = socket.create_server(addr, family=socket.AF_INET6, dualstack_ipv6=True) # prevent rare IPV6 softlock on localhost connections
     server.settimeout(2)
-    print(f'Server started on port {port}. Try: http://localhost:{port}/hello.html')
+    print(f'Server started on port {port}. Try: http://localhost:{port}/index.html')
     return server
 
 def accept_browser_connection_to(server):
