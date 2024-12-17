@@ -1,36 +1,19 @@
 /**
- * @fileoverview
- * Provides the JavaScript interactions for all pages.
- *
  * @author 
- * PUT_YOUR_NAME_HERE
+ * David Fisher
  */
 
-/** namespace. */
 var rhit = rhit || {};
+rhit.counter = 0;
 
-/** globals */
-rhit.variableName = "";
-
-/** function and class syntax examples */
-rhit.functionName = function () {
-	/** function body */
+rhit.setupButtons = function () {
+	console.log("Setup the buttons");
 };
 
-rhit.ClassName = class {
-	constructor() {
 
-	}
-
-	methodName() {
-
-	}
-}
-
-/* Main */
-/** function and class syntax examples */
 rhit.main = function () {
 	console.log("Ready");
+	rhit.setupButtons();
 };
 
 rhit.main();
