@@ -27,17 +27,15 @@ def main():
         # 3. Write the HTTP Response back to the browser
         writer_to_browser = connection_to_browser.makefile(mode='wb')
         try:
-            # DONE: read "Hello, World!" from an HTML file instead of this encoded string.
             filename = request_line.split(" ")[1]
             if filename == "/shutdown":
                 print("Server shutting down")
                 exit()            
+            if filename == "/":
+                filename = "/index.html"
             with open(f"./public{filename}", 'rb') as file:
                 response_body = file.read()
-            print(response_body)
             
-            
-            # response_body = "Hello, Dr. Fisher.".encode("utf-8")
             content_type = 'text/html; charset=utf-8'
             if filename.endswith(".html"):
                 content_type = 'text/html; charset=utf-8'
@@ -58,16 +56,7 @@ def main():
                 f'Content-length: {len(response_body)}',
                 'Connection: close',
                 '\r\n'
-            ]).encode("utf-8") # encode converts strings to raw bytes
-
-            # These lines just PRINT the HTTP Response to your Terminal.
-            print()
-            print('Response headers:')
-            print(response_headers)
-            print()
-            print('Response body:')
-            print(response_body)
-            print()
+            ]).encode("utf-8")
 
             # These lines do the real work; they WRITE the HTTP Response to the Browser.
             writer_to_browser.write(response_headers)
