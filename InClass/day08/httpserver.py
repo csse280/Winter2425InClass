@@ -1,3 +1,4 @@
+import datetime
 import socket
 import time
 import signal
@@ -73,6 +74,16 @@ def main():
             with(open(file_name, "rb") as fd):
                 # Lab TODO: introduce server-side rendering here
                 response_body = fd.read()
+            
+            if file_name == "./secret.html":
+                response_body_as_str = response_body.decode("utf-8")
+                # TODO: Use the Python .format trick (shown in the book) to put in fields!
+                response_body_as_str = response_body_as_str.format(
+                    username=form_fields["username"],
+                    date=datetime.datetime.today().strftime("%m/%d/%y"))
+                
+                response_body = response_body_as_str.encode("utf-8")
+                
             content_type = ""
             if(file_extension == "html"):
                 content_type = 'text/html; charset=utf-8'
