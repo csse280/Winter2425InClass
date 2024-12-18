@@ -22,3 +22,30 @@ body {
     font-size: 40px;
     margin-bottom: 10px;
 }
+
+.blue-box, .btn.btn-raised.btn-block.color-button.blue-box  {
+    background-color: blue;
+}
+
+.green-box, .green-box.btn.btn-raised.btn-block.color-button  {
+    background-color: green;
+}
+
+.red-box, .red-box.btn.btn-raised.btn-block.color-button {
+    background-color: #800000;
+}
+
+.purple-box, .purple-box.btn.btn-raised.btn-block.color-button {
+    background-color: purple;
+}
+
+#favoriteColorBox {
+    color: white;
+    line-height: 100px;
+    text-align: center;
+    font-size: 2em;
+}
+
+.btn.btn-raised.btn-block.color-button {
+    color: white;
+}
