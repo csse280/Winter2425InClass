@@ -19,14 +19,36 @@ def main():
             print('Request:')
             print(request_line)
 
-            # TODO: get the Request Method
+            # Done: get the Request Method
+            request_method = request_line.split(' ')[0]
+            print("This request is using the method ", request_method)
             file_name = "." + request_line.split(' ')[1]
             file_extension = file_name.split(".")[2]
             print('Requested file:', file_name)
             print('Extension:', file_extension)
 
             # TODO: read all Request Headers into a dictionary.
-
+            headers = {}
+            while True:
+                header_line = reader_from_browser.readline().decode("utf-8")
+                if header_line == "\r\n":
+                    break
+                header_pair = header_line.split(": ")
+                headers[header_pair[0]] = header_pair[1].strip()
+            
+            if request_method == "POST":
+                form_fields = {}
+                post_body = reader_from_browser.read(int(headers["Content-Length"]))
+                post_lines = post_body.decode("utf-8").split("\r\n")
+                for post_pair in post_lines:
+                    if post_pair == "":
+                        continue
+                    key = post_pair.split("=")[0]
+                    value = post_pair.split("=")[1]
+                    form_fields[key] = value
+                if form_fields["secret_passcode"] == "abc123":
+                    file_name = "./secret.html"
+                
             # TODO: if POST:
                 # TODO: 1. Retrieve the Request Body: it is exactly Content-Length bytes long.
                 # TODO: 2. Decode the Request Body.
