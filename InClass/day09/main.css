@@ -1,0 +1,33 @@
+.container {
+    display: grid;
+    grid-template-columns: 1fr 2fr 3fr 1fr;
+    background-color: dodgerblue;
+}
+
+.container > div {
+    background-color: azure;
+    margin: 10px;
+    width: 100px;
+    line-height: 75px;
+    font-size: 30px;
+    text-align: center;
+}
+
+/* .container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: dodgerblue;
+    justify-content: space-between;
+    height: 500px;
+    align-items: stretch;
+}
+
+.container > div {
+    background-color: azure;
+    margin: 10px;
+    width: 100px;
+    line-height: 75px;
+    font-size: 30px;
+    text-align: center;
+} */
