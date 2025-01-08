@@ -1,6 +1,7 @@
 import random
 
 def generate_dynamic_response_body(dict):
+    
     #build up string programmatically
     response_body = """
     <html>
@@ -12,14 +13,10 @@ def generate_dynamic_response_body(dict):
             <h1>Rendering Server-Side Variables Dynamically</h1>
             <ul>
     """
-    ############################################################
-    # Append list items based on the provided dictionary
-    # TODO add in a <li> with the key value pair for each entry
-    ############################################################
-    
-
-
-
+    #append enough list items based on the provided dictionary
+    # TODO add in a <li> with the key value pair for each entry in the dict
+    for key in dict.keys():
+        response_body+= f"<li>{key}: {dict[key]}</li>\r\n"
     
     #close the ul, body, html for a completed html page
     response_body += """
