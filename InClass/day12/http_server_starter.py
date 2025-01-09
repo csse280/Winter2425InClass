@@ -18,8 +18,12 @@ WEB_HOME = "./public"
 
 
 
-# TODO #1: store shopping list on the server
-
+# Done #1: store shopping list on the server
+import json
+shopping_list = {}
+# shopping_list['bread'] = 0
+# shopping_list['bananas'] = 0
+# shopping_list['milk'] = 1
 
 ####################
 
@@ -27,6 +31,7 @@ WEB_HOME = "./public"
 # This happens BEFORE we try to read from file, but if we set a response_body
 # or set a dictionary, then those will be used
 def handle_special_routes(file_name, post_data):
+    global shopping_list
     #when these parameters are set, they will get used
     special_response_body=""
     special_dict=""
@@ -45,11 +50,27 @@ def handle_special_routes(file_name, post_data):
         add_random_entry(server_variables)
         special_response_body = generate_dynamic_response_body(server_variables)
     
+    elif (file_name == "/API/hello"):
+        # special_response_body = "Hello Ajax World".encode("utf-8")
+        special_response_body = bytearray("Hello Ajax World!", encoding="utf-8")
+    
+    elif "/API/LOAD" in file_name:
+        print("Called Server route to LOAD")
+        data = json.dumps(shopping_list)
+        special_content_type = "application/json"
+        special_response_body = bytearray(data, encoding="utf-8")
+
+    elif "/API/SAVE" in file_name:
+        print("Called Server route to SAVE")
+        print(post_data)
+        shopping_list = post_data
+        special_response_body = bytearray("Success!", encoding="utf-8")
+    
 #####################################################
 
 # TODO #2: add a route for /API/hello
 
-# TODO #3: add a route for /API/ADD/foo=bar&a=123...
+# SKIP! #3: add a route for /API/ADD/foo=bar&a=123...
 
 # TODO #4: add a route for /API/LOAD which sends client the shopping list
 
@@ -145,7 +166,7 @@ def get_headers(reader_from_browser):
         if(header_line == '\r\n'):
             break
         pair = header_line.split(": ")
-        headers[pair[0]] = pair[1]
+        headers[pair[0]] = pair[1].strip()
         header_line = reader_from_browser.readline().decode("utf-8")
     return headers
 
@@ -163,6 +184,8 @@ def get_post_data(reader_from_browser, headers):
                 continue
             split_field = field.split("=")
             post_data[split_field[0]] = split_field[1]
+    elif headers["Content-Type"] == "application/json":
+        post_data = json.loads(post_lines)
     else:
         #FIXED (had an error in the code yesterday)
         fields = post_lines.split("&")
