@@ -7,15 +7,49 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
   <link rel="stylesheet" href="styles/bootstrap-material-design.min.css">
   <link rel="stylesheet" href="styles/main.css">
-  <title>App Name</title>
+  <title>HW2</title>
 </head>
 
 <body>
   <nav class="navbar navbar-dark fixed-top">
-    <a class="navbar-brand" href="#">App Name</a>
+    <a class="navbar-brand" href="#">Server Side Linear Lights Out</a>
   </nav>
   <div id="mainPage" class="container page-container">
 
+    <h1 id="gameState">Make the buttons match</h1>
+
+    <div class="row justify-content-center">
+      <div id="gameBoard"  class="col-12 col-md-6">
+
+        <div class="row no-gutters">
+          <div class="col">
+            <button class="btn light-btn light-on">1</button>
+          </div>
+          <div class="col">
+            <button class="btn light-btn light-on">1</button>
+          </div>
+          <div class="col">
+            <button class="btn light-btn light-off">0</button>
+          </div>
+          <div class="col">
+            <button class="btn light-btn light-on">1</button>
+          </div>
+          <div class="col">
+            <button class="btn light-btn light-on">1</button>
+          </div>
+          <div class="col">
+            <button class="btn light-btn light-off">0</button>
+          </div>
+          <div class="col">
+            <button class="btn light-btn light-off">0</button>
+          </div>
+        </div>
+        <div class="row justify-content-end">
+          <button class="btn rose-red-button">NEW GAME</button>
+        </div>
+
+      </div>
+    </div>
 
   </div>
   <script src="scripts/jquery.min.js"></script>
