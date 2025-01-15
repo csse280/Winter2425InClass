@@ -1,0 +1,44 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="problem1.css">
+    <title>Exam 1</title>
+</head>
+<body>
+    <div class="question-container">
+        <div class="question-text">
+            <p>According to StatCounter, the first time mobile browsers accounted for more web traffic than desktop browsers in North America was in 2017.</p>
+            <label><input name="q1" type="radio" value="incorrect">True</label><br>
+            <label><input name="q1" type="radio" value="correct">False</label><br>
+        </div>
+        <div id="q1incorrect" class="feedback-box incorrect-feedback" hidden>
+            <div class="feedback-title incorrect-title">Incorrect</div>
+            <p>Mobile browser access finally surpassed desktop browser access in 2019, not 2017. StatCounter partners with approximately 3 million websites to aggregate browser access statistics.</p>
+        </div>
+        <div id="q1correct" class="feedback-box correct-feedback" hidden>
+            <div class="feedback-title correct-title">Correct</div>
+            <p>Different text: Mobile browser access finally surpassed desktop browser access in 2019, not 2017. StatCounter partners with approximately 3 million websites to aggregate browser access statistics.</p>
+        </div>
+    </div>
+
+
+    <div class="question-container">
+        <div class="question-text">
+            <p>According to StatCounter, the Safari mobile web browser is most often used to access the web in North America.</p>
+            <label><input name="q2" type="radio" value="correct">True</label><br>
+            <label><input name="q2" type="radio" value="incorrect">False</label><br>
+        </div>
+        <div id="q2incorrect" class="feedback-box incorrect-feedback" hidden>
+            <div class="feedback-title incorrect-title">Incorrect</div>
+            <p>Different text: Safari is used on the iPhone, the most popular smartphone in North America. However, global statistics indicate Chrome is used more frequently today than Safari.</p>
+        </div>
+        <div id="q2correct" class="feedback-box correct-feedback" hidden>
+            <div class="feedback-title correct-title">Correct</div>
+            <p>Safari is used on the iPhone, the most popular smartphone in North America. However, global statistics indicate Chrome is used more frequently today than Safari.</p>
+        </div>
+    </div>
+
+    <script src="problem1.js"></script>
+</body>
+</html>
