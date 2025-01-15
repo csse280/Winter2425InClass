@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
+  <link rel="stylesheet" href="styles/bootstrap-material-design.min.css">
+  <link rel="stylesheet" href="styles/main.css">
+  <title>Favorite Things</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-dark fixed-top">
+    <a class="navbar-brand" href="#">Favorite Things</a>
+  </nav>
+  <div id="mainPage" class="container page-container">
+    <div class="container">
+
+      <h2>Favorite Number:</h2>
+      <div class="row">
+        <div id="counterText">
+          0
+        </div>
+      </div>
+
+
+      <div class="row justify-content-center">
+        <div class="col col-md-2">
+          <button id="decButton" type="button" class="btn btn-raised red-button btn-block">-1</button>
+        </div>
+        <div class="col col-md-2">
+          <button id="resetButton" type="button" class="btn btn-raised red-button btn-block">Reset</button>
+        </div>
+        <div class="col col-md-2">
+          <button id="incButton" type="button" class="btn btn-raised red-button btn-block">+1</button>
+        </div>
+      </div>
+    </div>
+
+
+    <hr>
+    <h2>Favorite Color:</h2>
+    <div id="favoriteColorContainer" class="mx-auto">
+      <div id="favoriteColorBox" class="default-box">
+        #800000
+      </div>
+    </div>
+    <br>
+    <div class="row no-gutters color-buttons justify-content-center">
+      <div class="col col-md-2">
+        <button data-color-text="Blue" data-color-class="blue-box" type="button" class="btn btn-raised blue-box color-btn btn-block">Blue</button>
+      </div>
+      <div class="col col-md-2">
+        <button data-color-text="Green" data-color-class="green-box" type="button" class="btn btn-raised green-box color-btn btn-block">Green</button>
+      </div>
+      <div class="col col-md-2">
+        <button data-color-text="Rose-Hulman Red" data-color-class="red-box" type="button" class="btn btn-raised red-box color-btn btn-block">Red</button>
+      </div>
+      <div class="col col-md-2">
+        <button data-color-text="Purple" data-color-class="purple-box" type="button" class="btn btn-raised purple-box color-btn btn-block">Purple</button>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+  </div>
+  <script src="scripts/jquery.min.js"></script>
+  <script src="scripts/popper.js"></script>
+  <script src="scripts/bootstrap-material-design.js"></script>
+  <script>$("body").bootstrapMaterialDesign();</script>
+  <script src="scripts/main.js"></script>
+</body>
+
+</html>

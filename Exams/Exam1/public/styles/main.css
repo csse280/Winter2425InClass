@@ -1,0 +1,57 @@
+body {
+    background: #DDDDDD;
+}
+
+.navbar {
+    background-color: #800000;
+    color: white;
+}
+
+.page-container {
+    margin-top: 75px;
+}
+
+.btn.btn-raised.red-button {
+    background-color: #800000;
+}
+
+#counterText {
+    margin: auto;
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+#favoriteColorBox {
+    line-height: 100px;
+    text-align: center;
+    color: white;
+    font-size: 2em;
+}
+
+.default-box {
+    background-color: #800000;
+}
+
+.color-buttons > .col {
+    padding: 2px;
+}
+
+.color-btn.blue-box, .color-btn.blue-box:hover, .blue-box {
+    background-color: blue;
+}
+
+.color-btn.green-box, .color-btn.green-box:hover, .green-box {
+    background-color: green;
+}
+
+.color-btn.red-box, .color-btn.red-box:hover, .red-box  {
+    background-color: #800000;
+}
+
+.color-btn.purple-box, .color-btn.purple-box:hover, .purple-box {
+    background-color: purple;
+}
+
+.btn, .btn:hover, .btn:active:focus, .btn:active, .btn:focus {
+    color: white;
+}
