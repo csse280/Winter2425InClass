@@ -1,36 +1,60 @@
-/**
- * @fileoverview
- * Provides the JavaScript interactions for all pages.
- *
- * @author 
- * PUT_YOUR_NAME_HERE
- */
-
-/** namespace. */
 var rhit = rhit || {};
 
-/** globals */
-rhit.variableName = "";
 
-/** function and class syntax examples */
-rhit.functionName = function () {
-	/** function body */
+rhit.PageController = class {
+	constructor() {
+		console.log("Made a PageController");
+		this.game = new rhit.Game();
+
+	}
+
+	updateView() {
+
+	}
 };
 
-rhit.ClassName = class {
+rhit.Game = class {
+	static Mark = {
+		X: "X",
+		O: "O",
+		NONE: " "
+	}
+	static State = {
+		X_TURN: "X's Turn",
+		O_TURN: "O's Turn",
+		X_WON: "X Wins!",
+		O_WON: "O Wins!",
+		TIE: "Tie Game"
+	}
+
+
 	constructor() {
+		console.log("Made a Game");
+		this.state = rhit.Game.State.X_TURN; 
+		// this.board = [];  // Of enums
+		// for (let k = 0; k < 9; k++) {
+		// 	this.board.push(rhit.Game.Mark.NONE);
+		// }
+		// Chat's solution:
+		this.board = Array(9).fill(rhit.Game.Mark.NONE);
+
 
 	}
 
-	methodName() {
+	pressedButtonAtIndex(buttonIndex) {
 
 	}
-}
 
-/* Main */
-/** function and class syntax examples */
+	// Optionals:
+	getMarkAtIndex(buttonIndex) {
+		return "X";  // TODO: Use the enum
+	}
+};
+
+
 rhit.main = function () {
 	console.log("Ready");
+	new rhit.PageController(); 
 };
 
 rhit.main();
