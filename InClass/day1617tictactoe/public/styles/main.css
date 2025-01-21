@@ -59,3 +59,31 @@ body {
     width: 300px;
     height: 300px;
 }
+
+@media (min-width: 576px) {
+    #gameBoard {
+        width: 450px;
+        height: 450px;
+    }
+    .square {
+        line-height: 140px;
+        font-size: 90px;
+    }
+    #newGameButton {
+        font-size: 1.25em;
+    }
+}
+
+@media (min-width: 768px) {
+    #gameBoard {
+        width: 600px;
+        height: 600px;
+    }
+    .square {
+        line-height: 180px;
+        font-size: 120px;
+    }
+    #newGameButton {
+        font-size: 1.5em;
+    }
+}
