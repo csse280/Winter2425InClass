@@ -14,33 +14,23 @@
   <nav class="navbar navbar-dark fixed-top">
     <a class="navbar-brand" href="#">Tic-Tac-Toe</a>
   </nav>
-  <div id="mainPage" class="container page-container">
-    <h1 id="gameStateText" class="text-center">X's Turn</h1>
-    <div class="row justify-content-center">
-      <div id="gameBoard" class="col-10 col-md-6">
-        <div class="row">
-          <div class="b-right b-bottom square col">X</div>
-          <div class="b-left b-right b-bottom square col">X</div>
-          <div class="b-left b-bottom square col">X</div>
-        </div>
-        <div class="row">
-          <div class="b-right b-bottom b-top square col">X</div>
-          <div class="b-left b-right b-bottom b-top square col">X</div>
-          <div class="b-left b-bottom b-top square col">X</div>
-        </div>
-        <div class="row">
-          <div class="b-right b-top square col">X</div>
-          <div class="b-left b-right b-top square col">X</div>
-          <div class="b-left b-top square col">X</div>
-        </div>
-        <div class="row">
-          <button id="newGameButton" class="btn">NEW GAME</button>
-        </div>
-      </div>
+  <div id="mainPage" class="page-container">
+    <h1 id="gameStateText">X's Turn</h1>
+    <div id="gameBoard">
+      <div class="b-right b-bottom square"></div>
+      <div class="b-left b-right b-bottom square"></div>
+      <div class="b-left b-bottom square"></div>
+      <div class="b-right b-bottom b-top square">X</div>
+      <div class="b-left b-right b-bottom b-top square">X</div>
+      <div class="b-left b-bottom b-top square">X</div>
+      <div class="b-right b-top square">X</div>
+      <div class="b-left b-right b-top square">X</div>
+      <div class="b-left b-top square">X</div>
+      <button id="newGameButton" class="btn">NEW GAME</button>
     </div>
   </div>
 
-<!-- Notes for how we did this with Bootstrap -->
+  <!-- Notes for how we did this with Bootstrap -->
   <!-- <div id="mainPage" class="container page-container">
     <h1 id="gameStateText" class="text-center">X's Turn</h1>
     <div class="row justify-content-center">
