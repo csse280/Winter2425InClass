@@ -10,3 +10,34 @@ body {
 .page-container {
     margin-top: 75px;
 }
+
+.square {
+    background-color: #80000080;
+    color: white;
+    font-size: 60px;
+    line-height: 100px;
+    text-align: center;
+}
+
+.b-left {
+    border-left: 4px solid black;
+}
+
+.b-right {
+    border-right: 4px solid black;
+}
+
+.b-top {
+    border-top: 4px solid black;
+}
+
+.b-bottom {
+    border-bottom: 4px solid black;
+}
+
+#newGameButton {
+    margin-top: 15px;
+    background-color: #800000;
+    color: white;
+    margin-left: auto;
+}

@@ -7,17 +7,66 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
   <link rel="stylesheet" href="styles/bootstrap-material-design.min.css">
   <link rel="stylesheet" href="styles/main.css">
-  <title>App Name</title>
+  <title>Tic-Tac-Toe</title>
 </head>
 
 <body>
   <nav class="navbar navbar-dark fixed-top">
-    <a class="navbar-brand" href="#">App Name</a>
+    <a class="navbar-brand" href="#">Tic-Tac-Toe</a>
   </nav>
   <div id="mainPage" class="container page-container">
-
-
+    <h1 id="gameStateText" class="text-center">X's Turn</h1>
+    <div class="row justify-content-center">
+      <div id="gameBoard" class="col-10 col-md-6">
+        <div class="row">
+          <div class="b-right b-bottom square col">X</div>
+          <div class="b-left b-right b-bottom square col">X</div>
+          <div class="b-left b-bottom square col">X</div>
+        </div>
+        <div class="row">
+          <div class="b-right b-bottom b-top square col">X</div>
+          <div class="b-left b-right b-bottom b-top square col">X</div>
+          <div class="b-left b-bottom b-top square col">X</div>
+        </div>
+        <div class="row">
+          <div class="b-right b-top square col">X</div>
+          <div class="b-left b-right b-top square col">X</div>
+          <div class="b-left b-top square col">X</div>
+        </div>
+        <div class="row">
+          <button id="newGameButton" class="btn">NEW GAME</button>
+        </div>
+      </div>
+    </div>
   </div>
+
+<!-- Notes for how we did this with Bootstrap -->
+  <!-- <div id="mainPage" class="container page-container">
+    <h1 id="gameStateText" class="text-center">X's Turn</h1>
+    <div class="row justify-content-center">
+      <div id="gameBoard" class="col-10 col-md-6">
+        <div class="row">
+          <div class="b-right b-bottom square col">X</div>
+          <div class="b-left b-right b-bottom square col">X</div>
+          <div class="b-left b-bottom square col">X</div>
+        </div>
+        <div class="row">
+          <div class="b-right b-bottom b-top square col">X</div>
+          <div class="b-left b-right b-bottom b-top square col">X</div>
+          <div class="b-left b-bottom b-top square col">X</div>
+        </div>
+        <div class="row">
+          <div class="b-right b-top square col">X</div>
+          <div class="b-left b-right b-top square col">X</div>
+          <div class="b-left b-top square col">X</div>
+        </div>
+        <div class="row justify-content-end">
+          <button id="newGameButton" class="ml-auto btn">NEW GAME</button>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
   <script src="scripts/jquery.min.js"></script>
   <script src="scripts/popper.js"></script>
   <script src="scripts/bootstrap-material-design.js"></script>
