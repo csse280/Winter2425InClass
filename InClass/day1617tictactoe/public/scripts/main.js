@@ -1,14 +1,30 @@
 var rhit = rhit || {};
 
-
 rhit.PageController = class {
 	constructor() {
 		console.log("Made a PageController");
 		this.game = new rhit.Game();
+		// TODO: Setup the NEW GAME and .square listeners
 
+		document.querySelector("#newGameButton").addEventListener("click", () => {
+			console.log("Clicked New Game");
+			this.game = new rhit.Game();
+			this.updateView();
+		});
+
+		document.querySelectorAll(".square").forEach((element) => {
+			element.addEventListener("click", () => {
+				let buttonIndex = parseInt(element.dataset.buttonIndex);
+				this.game.pressedButtonAtIndex(buttonIndex);
+				this.updateView();
+			});
+		});
+		this.updateView();  // Calls update View at the start.
 	}
 
 	updateView() {
+		document.querySelector("#gameStateText").textContent = this.game.state;
+		
 
 	}
 };
@@ -42,12 +58,17 @@ rhit.Game = class {
 	}
 
 	pressedButtonAtIndex(buttonIndex) {
-
+		this.board[buttonIndex] = rhit.Game.Mark.X;
+		this.state = rhit.Game.State.O_TURN;
 	}
 
 	// Optionals:
 	getMarkAtIndex(buttonIndex) {
-		return "X";  // TODO: Use the enum
+		return this.board[buttonIndex];
+	}
+
+	toString() {
+		return `State ${this.state}  Board: ${this.board}`;
 	}
 };
 
@@ -55,6 +76,12 @@ rhit.Game = class {
 rhit.main = function () {
 	console.log("Ready");
 	new rhit.PageController(); 
+
+	// Temp example
+	// let game = new rhit.Game();
+	// console.log(game.toString());
+	// game.pressedButtonAtIndex(4);
+	// console.log(game.toString());
 };
 
 rhit.main();
