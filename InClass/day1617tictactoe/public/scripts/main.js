@@ -2,16 +2,11 @@ var rhit = rhit || {};
 
 rhit.PageController = class {
 	constructor() {
-		console.log("Made a PageController");
 		this.game = new rhit.Game();
-		// TODO: Setup the NEW GAME and .square listeners
-
 		document.querySelector("#newGameButton").addEventListener("click", () => {
-			console.log("Clicked New Game");
 			this.game = new rhit.Game();
 			this.updateView();
 		});
-
 		document.querySelectorAll(".square").forEach((element) => {
 			element.addEventListener("click", () => {
 				let buttonIndex = parseInt(element.dataset.buttonIndex);
@@ -24,8 +19,9 @@ rhit.PageController = class {
 
 	updateView() {
 		document.querySelector("#gameStateText").textContent = this.game.state;
-		
-
+		document.querySelectorAll(".square").forEach((element, index) => {
+			element.textContent = this.game.getMarkAtIndex(index);
+		});
 	}
 };
 
@@ -45,21 +41,50 @@ rhit.Game = class {
 
 
 	constructor() {
-		console.log("Made a Game");
 		this.state = rhit.Game.State.X_TURN; 
-		// this.board = [];  // Of enums
-		// for (let k = 0; k < 9; k++) {
-		// 	this.board.push(rhit.Game.Mark.NONE);
-		// }
-		// Chat's solution:
 		this.board = Array(9).fill(rhit.Game.Mark.NONE);
-
-
 	}
 
 	pressedButtonAtIndex(buttonIndex) {
-		this.board[buttonIndex] = rhit.Game.Mark.X;
-		this.state = rhit.Game.State.O_TURN;
+		if (this.getMarkAtIndex(buttonIndex) != rhit.Game.Mark.NONE) {
+			return;  // This spot is NOT open!!!!
+		}
+		if (this.state == rhit.Game.State.X_TURN) {
+			this.board[buttonIndex] = rhit.Game.Mark.X;
+			this.state = rhit.Game.State.O_TURN;
+			this._checkForWin();
+		} else if (this.state == rhit.Game.State.O_TURN) {
+			this.board[buttonIndex] = rhit.Game.Mark.O;
+			this.state = rhit.Game.State.X_TURN;
+			this._checkForWin();
+		}
+	}
+
+	_checkForWin() {
+		// Put the tie code BEFORE the win code
+		if (!this.board.includes(rhit.Game.Mark.NONE)) {
+			this.state = rhit.Game.State.TIE;
+		}
+
+		let linesOf3 = [];
+		linesOf3.push(this.board[0] + this.board[1] + this.board[2]);
+		linesOf3.push(this.board[3] + this.board[4] + this.board[5]);
+		linesOf3.push(this.board[6] + this.board[7] + this.board[8]);
+
+		linesOf3.push(this.board[0] + this.board[3] + this.board[6]);
+		linesOf3.push(this.board[1] + this.board[4] + this.board[7]);
+		linesOf3.push(this.board[2] + this.board[5] + this.board[8]);
+
+		linesOf3.push(this.board[0] + this.board[4] + this.board[8]);
+		linesOf3.push(this.board[6] + this.board[4] + this.board[2]);
+
+		for (let lineOf3 of linesOf3) {
+			if (lineOf3 == "XXX") {
+				this.state = rhit.Game.State.X_WON;
+			} else if (lineOf3 == "OOO") {
+				this.state = rhit.Game.State.O_WON;
+			}
+		}
 	}
 
 	// Optionals:
