@@ -20,14 +20,13 @@ function addItemToList(itemString, status) {
   let list2 = document.querySelector("#list2");
   let li = document.createElement("li");
   li.textContent = itemString;
-  
+
   if (status == 0) {
     list1.append(li);
   } else {
     list2.append(li);
     li.style.textDecoration = "line-through";
   }
-  
 
   // Add a mouseover event listener to change the style on hover
   li.addEventListener("mouseover", function () {
@@ -80,38 +79,68 @@ window.addEventListener("load", (event) => {
 //  6 - setupButtonListeners() attach the click listeners to the buttons
 //  7 - clearData() clear the current lists
 
-function loadData() {
-  let xhr = new XMLHttpRequest();
-  xhr.open("GET", "/API/LOAD");
-  xhr.addEventListener("load", () => {
-    // console.log(xhr.responseText);
-    let shoppingList = JSON.parse(xhr.responseText);
-    // console.log(shoppingList);
+// function loadData() {
+//   let xhr = new XMLHttpRequest();
+//   xhr.open("GET", "/API/LOAD");
+//   xhr.addEventListener("load", () => {
+//     // console.log(xhr.responseText);
+//     let shoppingList = JSON.parse(xhr.responseText);
+//     // console.log(shoppingList);
 
+//     for (let key in shoppingList) {
+//       addItemToList(key, shoppingList[key]);
+//     }
+//   });
+//   xhr.send();
+// }
+
+async function loadData() {
+  let response = await fetch("/API/LOAD");
+  if (response.ok) {
+    let shoppingList = await response.json();
     for (let key in shoppingList) {
       addItemToList(key, shoppingList[key]);
     }
-  });
-  xhr.send();
+  } else {
+    console.error("Error with fetch");
+  }
 }
 
 function getCurrentData() {
   let currentData = {};
-  document.querySelectorAll("#list1 li").forEach( (element) => {
+  document.querySelectorAll("#list1 li").forEach((element) => {
     let itemText = element.textContent;
     currentData[itemText] = 0;
-  } );
+  });
 
-  document.querySelectorAll("#list2 li").forEach( (element) => {
+  document.querySelectorAll("#list2 li").forEach((element) => {
     let itemText = element.textContent;
     currentData[itemText] = 1;
-  } );
+  });
   return currentData;
 }
 
-function saveData() {
-  let xhr = new XMLHttpRequest();
-  xhr.open("POST", "/API/SAVE");
-  xhr.setRequestHeader("Content-Type", "application/json");
-  xhr.send( JSON.stringify(getCurrentData()) );
+// function saveData() {
+//   let xhr = new XMLHttpRequest();
+//   xhr.open("POST", "/API/SAVE");
+//   xhr.setRequestHeader("Content-Type", "application/json");
+//   xhr.send( JSON.stringify(getCurrentData()) );
+// }
+
+async function saveData() {
+  try {
+    let response = await fetch("/API/SAVE", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(getCurrentData()),
+    });
+
+    if (!response.ok) {
+      throw new Error(`fetch error ${response.status}`);
+    }
+  } catch (error) {
+    throw new Error(`fetch error ${error}`);
+  }
 }

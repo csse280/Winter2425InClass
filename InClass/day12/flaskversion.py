@@ -1,8 +1,10 @@
 import flask
 
-shopping_list={}
+shopping_list = {}
 
-app = flask.Flask(__name__, static_folder="public", static_url_path="")
+app = flask.Flask(__name__, 
+                  static_folder="public", 
+                  static_url_path="")
 
 @app.get("/API/LOAD")
 def handle_load():
@@ -10,14 +12,9 @@ def handle_load():
 
 @app.post("/API/SAVE")
 def handle_save():
+    global shopping_list
     print("/API/SAVE invoked, post_data:")
-    post_data = flask.request.form
-    print(post_data)
-    new_keys=0
-    for key in post_data.keys():
-        if not key in shopping_list:
-            new_keys+=1
-        shopping_list[key] = post_data[key]
-    return flask.jsonify(f"OK. Added {new_keys} new items.")    
+    shopping_list = flask.request.json
+    return flask.jsonify(f"Success!")    
     
 app.run(host="0.0.0.0", port=8080, debug=True)
