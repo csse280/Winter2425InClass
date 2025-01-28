@@ -1,7 +1,7 @@
 import json
 
 # Example dictionary
-data = {'name': 'Alice', 'age': 30, 'occupation': 'Engineer'}
+data = {'name': 'Dave Fisher', 'age': 48, 'occupation': 'Professor'}
 
 # Save the dictionary to a file using json library
 with open('json_data.db', 'w') as file:
