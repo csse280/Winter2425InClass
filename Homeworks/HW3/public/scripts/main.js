@@ -1,36 +1,5 @@
-/**
- * @fileoverview
- * Provides the JavaScript interactions for all pages.
- *
- * @author 
- * PUT_YOUR_NAME_HERE
- */
+// TODO: Use ES6 Classes with Modules!
 
-/** namespace. */
-var rhit = rhit || {};
+// Temporary learning stuff...
 
-/** globals */
-rhit.variableName = "";
-
-/** function and class syntax examples */
-rhit.functionName = function () {
-	/** function body */
-};
-
-rhit.ClassName = class {
-	constructor() {
-
-	}
-
-	methodName() {
-
-	}
-}
-
-/* Main */
-/** function and class syntax examples */
-rhit.main = function () {
-	console.log("Ready");
-};
-
-rhit.main();
+console.log("Ready");

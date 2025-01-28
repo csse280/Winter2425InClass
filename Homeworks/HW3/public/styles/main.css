@@ -10,3 +10,36 @@ body {
 .page-container {
     margin-top: 75px;
 }
+
+#gameState {
+    margin-top: 125px;
+    text-align: center;
+}
+
+.light-btn {
+    font-size: 1.5em;
+    padding: 20px 15px;
+}
+
+@media screen and (min-width: 768px) {
+    .light-btn {
+        font-size: 2em;
+    }
+}
+
+.light-btn.btn.light-off {
+    background-color: #343a40;
+    color: white;
+}
+
+.light-btn.btn.light-on {
+    background-color: #dfa727;
+    color: #212529;
+}
+
+.btn.rose-red-button {
+    margin-top: 20px;
+    background-color: #800000;
+    color: white;
+}
+
