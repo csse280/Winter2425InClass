@@ -15,12 +15,9 @@
     <a class="navbar-brand" href="#">Server Side Linear Lights Out</a>
   </nav>
   <div id="mainPage" class="container page-container">
-
     <h1 id="gameState">Make the buttons match</h1>
-
     <div class="row justify-content-center">
-      <div id="gameBoard"  class="col-12 col-md-6">
-
+      <div id="gameBoard" class="col-12 col-md-6">
         <div class="row no-gutters">
           <div class="col">
             <button class="btn light-btn light-on">1</button>
@@ -47,11 +44,64 @@
         <div class="row justify-content-end">
           <button class="btn rose-red-button">NEW GAME</button>
         </div>
-
+        <br><br>
+        <table class="table table-striped text-center">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Name</th>
+              <th scope="col">Moves</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>Mark</td>
+              <td>7</td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>Jacob</td>
+              <td>11</td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td>Larry</td>
+              <td>22</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
-
   </div>
+
+  <!-- Button trigger modal -->
+  <button id="fakeWin" type="button" class="btn btn-primary">
+    Fake Win!
+  </button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="addNameDialog" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">You made the Leaderboard!.</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button id="addNameBtn" type="button" class="btn btn-primary">Add Name</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script src="scripts/jquery.min.js"></script>
   <script src="scripts/popper.js"></script>
   <script src="scripts/bootstrap-material-design.js"></script>
