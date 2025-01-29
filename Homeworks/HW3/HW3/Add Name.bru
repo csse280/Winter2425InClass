@@ -1,0 +1,15 @@
+meta {
+  name: Add Name
+  type: http
+  seq: 4
+}
+
+post {
+  url: http://localhost:8080/api/add_name
+  body: json
+  auth: none
+}
+
+body:json {
+  {"name": "Bruno", "numMoves": 7}
+}
