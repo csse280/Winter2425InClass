@@ -1,0 +1,22 @@
+.blue-box {
+    background-color: blue;
+}
+
+.green-box  {
+    background-color: green;
+}
+
+.red-box {
+    background-color: #800000;
+}
+
+.purple-box {
+    background-color: purple;
+}
+
+#favoriteColorBox {
+    color: white;
+    line-height: 100px;
+    text-align: center;
+    font-size: 2em;
+}
