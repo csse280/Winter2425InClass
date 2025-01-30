@@ -1,14 +1,19 @@
 import flask
 
 leaderboard = []
-# leaderboard.append({"name": "Dave0", "numMoves": 100})
-# leaderboard.append({"name": "Dave1", "numMoves": 200})
-# leaderboard.append({"name": "Dave2", "numMoves": 300})
-# leaderboard.append({"name": "Dave3", "numMoves": 400})
-# leaderboard.append({"name": "Dave4", "numMoves": 500})
-# leaderboard.append({"name": "Dave5", "numMoves": 600})
+leaderboard.append({"name": "Dave0", "numMoves": 100})
+leaderboard.append({"name": "Dave1", "numMoves": 200})
+leaderboard.append({"name": "Dave2", "numMoves": 300})
+leaderboard.append({"name": "Dave3", "numMoves": 400})
+leaderboard.append({"name": "Dave4", "numMoves": 500})
+leaderboard.append({"name": "Dave5", "numMoves": 600})
 
 app = flask.Flask(__name__, static_folder="public", static_url_path="")
+
+@app.get("/")
+def handle_naked_domain():
+    return flask.redirect("/index.html")
+
 
 @app.get("/api/leaderboard")
 def handle_leaderboard():
