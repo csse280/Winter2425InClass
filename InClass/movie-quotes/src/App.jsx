@@ -1,22 +1,21 @@
-// import { collection, addDoc, serverTimestamp } from "firebase/firestore"; 
+// import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 // import { query, where, onSnapshot } from "firebase/firestore";
 // import { db } from "./firebaseConfig.js";
 import "./App.css";
-
+import MyAppBar from "./MyAppBar.jsx";
 
 function App() {
-  
   // function spikeTestRead() {
   //   console.log("TODO: Read from the firestore database");
   //   // const q = query(collection(db, "MovieQuotes"), where("state", "==", "CA"));
   //   const ref = collection(db, "MovieQuotes");
   //   const unsubscribe = onSnapshot(ref, (querySnapshot) => {
-      
-  //     querySnapshot.forEach((doc) => {  
+
+  //     querySnapshot.forEach((doc) => {
   //       console.log("Document id:", doc.id);
   //       console.log("Document data:", doc.data());
   //     });
-      
+
   //   });
   // }
 
@@ -36,10 +35,7 @@ function App() {
 
   return (
     <>
-      {/* <button onClick={spikeTestRead}>Spike Read Test</button>
-      <br />
-      <br />
-      <button onClick={spikeTestWrite}>Spike Write Test</button> */}
+      <MyAppBar />
     </>
   );
 }
