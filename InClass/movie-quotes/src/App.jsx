@@ -1,18 +1,22 @@
-import { useState } from 'react'
-import './App.css'
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  function spikeTestRead() {
+    console.log("TODO: Read from the firestore database");
+  }
+  function spikeTestWrite() {
+    console.log("TODO: Write to the firestore database");
+  }
 
   return (
     <>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-      </div>
+      <button onClick={spikeTestRead}>Spike Read Test</button>
+      <br />
+      <br />
+      <button onClick={spikeTestWrite}>Spike Write Test</button>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
