@@ -6,6 +6,11 @@ import "./App.css";
 import MyAppBar from "./MyAppBar.jsx";
 import MyFab from "./MyFab.jsx";
 import QuoteDialog from "./QuoteDialog.jsx";
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
+
 
 function App() {
   // function spikeTestRead() {
