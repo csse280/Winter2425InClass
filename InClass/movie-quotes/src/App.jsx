@@ -1,9 +1,11 @@
 // import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 // import { query, where, onSnapshot } from "firebase/firestore";
 // import { db } from "./firebaseConfig.js";
+import { useState } from "react";
 import "./App.css";
 import MyAppBar from "./MyAppBar.jsx";
 import MyFab from "./MyFab.jsx";
+import QuoteDialog from "./QuoteDialog.jsx";
 
 function App() {
   // function spikeTestRead() {
@@ -34,15 +36,29 @@ function App() {
   //   }
   // }
 
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+
   return (
     <>
       <MyAppBar />
-      <br></br>
-      <br></br>
-      <br></br>
       <MyFab onClick={() => {
         console.log("The FAB was clicked");
+        setIsDialogOpen(true);
       }}/>
+      <QuoteDialog 
+        isOpen={isDialogOpen}
+        positiveAction={(quote, movie) => {
+          console.log("TODO: upload", quote, movie);
+
+          // TODO: Actually do it!
+
+          setIsDialogOpen(false);
+        }}
+        negativeAction={() => {
+          console.log("You hit cancel or closed the dialog");
+          setIsDialogOpen(false);
+        }}
+      />
     </>
   );
 }
