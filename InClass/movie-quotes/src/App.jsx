@@ -3,6 +3,7 @@
 // import { db } from "./firebaseConfig.js";
 import "./App.css";
 import MyAppBar from "./MyAppBar.jsx";
+import MyFab from "./MyFab.jsx";
 
 function App() {
   // function spikeTestRead() {
@@ -36,6 +37,12 @@ function App() {
   return (
     <>
       <MyAppBar />
+      <br></br>
+      <br></br>
+      <br></br>
+      <MyFab onClick={() => {
+        console.log("The FAB was clicked");
+      }}/>
     </>
   );
 }
