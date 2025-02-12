@@ -1,5 +1,4 @@
-import { collection, addDoc, serverTimestamp } from "firebase/firestore";
-import { query, where, onSnapshot } from "firebase/firestore";
+import { collection, addDoc, onSnapshot, serverTimestamp } from "firebase/firestore";
 import { db } from "./firebaseConfig.js";
 
 const collectionMovieQuotes = "MovieQuotes";
@@ -10,16 +9,25 @@ const keyLastTouched = "lastTouched";
 class FbMovieQuotesCollectionManager {
   constructor() {
     this.documentSnapshots = [];
+    this._ref = collection(db, collectionMovieQuotes);
   }
 
-  beginListening(changeListener) {}
-
-  stopListening() {}
+  beginListening(changeListener) {
+    // const q = query(collection(db, "MovieQuotes"), where("state", "==", "CA"));
+    return onSnapshot(this._ref, (querySnapshot) => {
+    //   querySnapshot.forEach((doc) => {
+    //     console.log("Document id:", doc.id);
+    //     console.log("Document data:", doc.data());
+    //   });
+      this.documentSnapshots = querySnapshot.docs;
+      changeListener();
+    });
+  }
 
   async add(quote, movie) {
     console.log("Write to the firestore database", quote, movie);
     try {
-      const docRef = await addDoc(collection(db, collectionMovieQuotes), {
+      const docRef = await addDoc(this._ref, {
         [keyQuote]: quote,
         [keyMovie]: movie,
         [keyLastTouched]: serverTimestamp(),
