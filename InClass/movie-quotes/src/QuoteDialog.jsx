@@ -1,16 +1,13 @@
 /* eslint-disable react/prop-types */
-import { useState } from "react";
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 
 export default function QuoteDialog({ isOpen, positiveAction, negativeAction}) {
   
-
   return (
       <Dialog
         open={isOpen}
@@ -22,34 +19,38 @@ export default function QuoteDialog({ isOpen, positiveAction, negativeAction}) {
               event.preventDefault();
               const formData = new FormData(event.currentTarget);
               const formJson = Object.fromEntries(formData.entries());
-              const email = formJson.email;
-              console.log(email);
-              positiveAction("TODO: get a quote", "TODO: get a movie");
+              positiveAction(formJson.quote, formJson.movie);
             },
           },
         }}
       >
-        <DialogTitle>Subscribe</DialogTitle>
+        <DialogTitle>Add Quote</DialogTitle>
         <DialogContent>
-          <DialogContentText>
-            To subscribe to this website, please enter your email address here. We
-            will send updates occasionally.
-          </DialogContentText>
           <TextField
             autoFocus
             required
             margin="dense"
-            id="name"
-            name="email"
-            label="Email Address"
-            type="email"
+            id="quote"
+            name="quote"
+            label="Quote:"
+            type="text"
             fullWidth
-            variant="standard"
+            variant="outlined"
+          />
+          <TextField
+            required
+            margin="dense"
+            id="movie"
+            name="movie"
+            label="Movie:"
+            type="text"
+            fullWidth
+            variant="outlined"
           />
         </DialogContent>
         <DialogActions>
           <Button onClick={negativeAction}>Cancel</Button>
-          <Button type="submit">Subscribe</Button>
+          <Button type="submit">Add Quote</Button>
         </DialogActions>
       </Dialog>
   );
