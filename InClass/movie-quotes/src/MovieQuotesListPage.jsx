@@ -2,6 +2,7 @@ import { useState } from "react";
 import MyAppBar from "./MyAppBar.jsx";
 import MyFab from "./MyFab.jsx";
 import QuoteDialog from "./QuoteDialog.jsx";
+import fbMovieQuotesCollectionManager from "./FbMovieQuotesCollectionManager.js";
 
 export default function MovieQuotesListPage() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -18,10 +19,7 @@ export default function MovieQuotesListPage() {
       <QuoteDialog
         isOpen={isDialogOpen}
         positiveAction={(quote, movie) => {
-          console.log("TODO: upload", quote, movie);
-
-          // TODO: Actually do it!
-
+          fbMovieQuotesCollectionManager.add(quote, movie);
           setIsDialogOpen(false);
         }}
         negativeAction={() => {

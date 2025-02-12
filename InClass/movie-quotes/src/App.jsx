@@ -1,6 +1,3 @@
-// import { collection, addDoc, serverTimestamp } from "firebase/firestore";
-// import { query, where, onSnapshot } from "firebase/firestore";
-// import { db } from "./firebaseConfig.js";
 import "./App.css";
 import "@fontsource/roboto/300.css";
 import "@fontsource/roboto/400.css";
@@ -21,20 +18,6 @@ function App() {
   //     });
 
   //   });
-  // }
-
-  // async function spikeTestWrite() {
-  //   console.log("Write to the firestore database");
-  //   try {
-  //     const docRef = await addDoc(collection(db, "MovieQuotes"), {
-  //       quote: "Spike quote",
-  //       movie: "Spike movie",
-  //       lastTouched: serverTimestamp(),
-  //     });
-  //     console.log("Document written with ID: ", docRef.id);
-  //   } catch (e) {
-  //     console.error("Error adding document: ", e);
-  //   }
   // }
 
   return (
