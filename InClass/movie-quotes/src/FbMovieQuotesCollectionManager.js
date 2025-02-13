@@ -1,4 +1,5 @@
 import { collection, addDoc, onSnapshot, serverTimestamp } from "firebase/firestore";
+import { query, orderBy, limit } from "firebase/firestore";  
 import { db } from "./firebaseConfig.js";
 
 const collectionMovieQuotes = "MovieQuotes";
@@ -14,7 +15,8 @@ class FbMovieQuotesCollectionManager {
 
   beginListening(changeListener) {
     // const q = query(collection(db, "MovieQuotes"), where("state", "==", "CA"));
-    return onSnapshot(this._ref, (querySnapshot) => {
+    const q = query(this._ref, orderBy(keyLastTouched, "desc"));
+    return onSnapshot(q, (querySnapshot) => {
     //   querySnapshot.forEach((doc) => {
     //     console.log("Document id:", doc.id);
     //     console.log("Document data:", doc.data());
