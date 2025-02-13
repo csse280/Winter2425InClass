@@ -5,7 +5,7 @@ import MovieQuoteRow from './MovieQuoteRow';
 
 export default function MovieQuoteList({ snapshots }) {
   return (
-    <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
+    <List>
       {snapshots.map((documentSnapshot) => (
         <MovieQuoteRow
         key={documentSnapshot.id}
