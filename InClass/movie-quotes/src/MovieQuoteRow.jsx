@@ -5,6 +5,7 @@ import ListItemAvatar from "@mui/material/ListItemAvatar";
 import Avatar from "@mui/material/Avatar";
 import MovieIcon from "@mui/icons-material/Movie";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import Typography from "@mui/material/Typography";
 
 export default function MovieQuoteRow({ snapshotData, onClick }) {
   return (
@@ -19,9 +20,17 @@ export default function MovieQuoteRow({ snapshotData, onClick }) {
         </Avatar>
       </ListItemAvatar>
       <ListItemText
-        sx={{ flexGrow: 1 }}
-        primary={snapshotData.quote}
-        secondary={snapshotData.movie}
+        
+        primary={
+            <Typography noWrap>
+              {snapshotData.quote}
+            </Typography>
+          }
+          secondary={
+            <Typography noWrap>
+              {snapshotData.movie}
+            </Typography>
+          }
       />
       <ChevronRightIcon />
     </ListItem>
