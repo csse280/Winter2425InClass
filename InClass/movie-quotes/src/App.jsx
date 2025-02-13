@@ -1,3 +1,5 @@
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 import "./App.css";
 import "@fontsource/roboto/300.css";
 import "@fontsource/roboto/400.css";
@@ -8,9 +10,12 @@ import MovieQuoteDetailPage from "./MovieQuoteDetailPage";
 
 function App() {
   return (
-    <>
-      <MovieQuoteDetailPage />
-    </>
+    <Router>
+      <Routes>
+        <Route path="/" element={<MovieQuotesListPage />} />
+        <Route path="/quote/:id" element={<MovieQuoteDetailPage />} />
+      </Routes>
+    </Router>
   );
 }
 
