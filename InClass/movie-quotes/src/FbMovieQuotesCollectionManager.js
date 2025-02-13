@@ -1,5 +1,5 @@
 import { collection, addDoc, onSnapshot, serverTimestamp } from "firebase/firestore";
-import { query, orderBy, limit } from "firebase/firestore";  
+import { query, orderBy } from "firebase/firestore";  
 import { db } from "./firebaseConfig.js";
 
 const collectionMovieQuotes = "MovieQuotes";

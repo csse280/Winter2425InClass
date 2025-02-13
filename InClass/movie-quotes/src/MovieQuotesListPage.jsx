@@ -3,6 +3,7 @@ import MyAppBar from "./MyAppBar.jsx";
 import MyFab from "./MyFab.jsx";
 import QuoteDialog from "./QuoteDialog.jsx";
 import fbMovieQuotesCollectionManager from "./FbMovieQuotesCollectionManager.js";
+import MovieQuoteList from "./MovieQuoteList.jsx";
 
 export default function MovieQuotesListPage() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -22,14 +23,8 @@ export default function MovieQuotesListPage() {
     <>
       <MyAppBar />
 
-      <div className="mt-12">
-        <ul>
-          {documentSnapshots.map((documentSnapshot) => (
-            <li key={documentSnapshot.id}>
-                {documentSnapshot.data().quote} -from {documentSnapshot.data().movie}
-            </li>
-          ))}
-        </ul>
+      <div className="mt-14">
+        <MovieQuoteList snapshots={documentSnapshots} />
       </div>
 
       <MyFab
