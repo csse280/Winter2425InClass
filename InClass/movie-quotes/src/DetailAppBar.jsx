@@ -6,11 +6,14 @@ import IconButton from "@mui/material/IconButton";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 
-export default function DetailAppBar({onEdit, onDelete}) {
+export default function DetailAppBar({onHome, onEdit, onDelete}) {
   return (
     <AppBar position="fixed"  sx={{ backgroundColor: 'var(--color-rosered)' }}>
       <Toolbar>
-        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+        <Typography onClick={onHome}
+        variant="h6"
+        component="div"
+        sx={{ flexGrow: 1, cursor: "pointer" }}>
           Movie Quotes
         </Typography>
         <IconButton

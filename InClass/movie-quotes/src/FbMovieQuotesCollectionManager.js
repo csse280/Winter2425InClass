@@ -1,11 +1,7 @@
 import { collection, addDoc, onSnapshot, serverTimestamp } from "firebase/firestore";
 import { query, orderBy } from "firebase/firestore";  
 import { db } from "./firebaseConfig.js";
-
-const collectionMovieQuotes = "MovieQuotes";
-const keyQuote = "quote";
-const keyMovie = "movie";
-const keyLastTouched = "lastTouched";
+import { collectionMovieQuotes, keyQuote, keyMovie, keyLastTouched } from "./FbConstants.js"; 
 
 class FbMovieQuotesCollectionManager {
   constructor() {

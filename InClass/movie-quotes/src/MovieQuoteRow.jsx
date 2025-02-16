@@ -20,7 +20,6 @@ export default function MovieQuoteRow({ snapshotData, onClick }) {
         </Avatar>
       </ListItemAvatar>
       <ListItemText
-        
         primary={
             <Typography noWrap>
               {snapshotData.quote}
