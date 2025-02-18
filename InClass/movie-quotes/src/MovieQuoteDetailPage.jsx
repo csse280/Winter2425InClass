@@ -38,6 +38,8 @@ export default function MovieQuoteDetailPage() {
         }}
         onDelete={() => {
           console.log("Clicked delete");
+          fbMovieQuoteDocumentManager.delete(id);
+          navigate("/");
         }}
       />
       <div className="p-20 bg-gray-300 min-h-screen">
