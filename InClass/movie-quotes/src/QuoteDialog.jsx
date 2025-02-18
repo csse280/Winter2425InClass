@@ -10,6 +10,7 @@ export default function QuoteDialog({
   isOpen,
   positiveAction,
   negativeAction,
+  movieQuoteData,
 }) {
   return (
     <Dialog
@@ -28,7 +29,7 @@ export default function QuoteDialog({
         },
       }}
     >
-      <DialogTitle>Add Quote</DialogTitle>
+      <DialogTitle>{movieQuoteData ? "Update Quote" : "Add Quote"}</DialogTitle>
       <DialogContent>
         <TextField
           autoFocus
@@ -40,6 +41,7 @@ export default function QuoteDialog({
           type="text"
           fullWidth
           variant="outlined"
+          defaultValue={movieQuoteData?.quote ?? ""}
         />
         <TextField
           required
@@ -50,11 +52,12 @@ export default function QuoteDialog({
           type="text"
           fullWidth
           variant="outlined"
+          defaultValue={movieQuoteData?.movie ?? ""}
         />
       </DialogContent>
       <DialogActions>
         <Button onClick={negativeAction}>Cancel</Button>
-        <Button type="submit">Add Quote</Button>
+        <Button type="submit">{movieQuoteData ? "Update Quote" : "Add Quote"}</Button>
       </DialogActions>
     </Dialog>
   );

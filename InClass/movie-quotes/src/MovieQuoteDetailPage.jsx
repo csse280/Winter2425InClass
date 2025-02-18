@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { Card, CardContent, Typography } from "@mui/material";
 import { FormatQuote, Movie } from "@mui/icons-material";
 import fbMovieQuoteDocumentManager from "./FbMovieQuoteDocumentManager.js";
+import QuoteDialog from "./QuoteDialog.jsx";
 
 export default function MovieQuoteDetailPage() {
   const { id } = useParams();
@@ -22,22 +23,20 @@ export default function MovieQuoteDetailPage() {
     return () => {
       // Unsubscribe
       unsubscribe();
-    }
+    };
   }, [id]);
-  
 
   return (
     <>
       <DetailAppBar
         onHome={() => {
-          console.log("Clicked Home");
           navigate("/");
         }}
         onEdit={() => {
           console.log("Clicked edit");
+          setIsDialogOpen(true);
         }}
         onDelete={() => {
-          console.log("Clicked delete");
           fbMovieQuoteDocumentManager.delete(id);
           navigate("/");
         }}
@@ -57,6 +56,18 @@ export default function MovieQuoteDetailPage() {
           </CardContent>
         </Card>
       </div>
+
+      <QuoteDialog
+        isOpen={isDialogOpen}
+        movieQuoteData={documentSnapshot?.data()}
+        negativeAction={() => {
+          setIsDialogOpen(false);
+        }}
+        positiveAction={(quote, movie) => {
+          fbMovieQuoteDocumentManager.update(id, quote, movie);
+          setIsDialogOpen(false);
+        }}
+      />
     </>
   );
 }
